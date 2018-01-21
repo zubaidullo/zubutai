@@ -1,10 +1,10 @@
 {
-  "name": "SubutaiAnsible",
-  "description": "Environment configuration test blueprint",
+  "name": "SubutaiTestBlueprint", //Environment name
+  "description": "Environment configuration test Subutai blueprint",
   "nodes": [
     {
-      "name": "backup-server1",
-      "template": "ubuntu16",
+      "name": "backup-server1", //Container name
+      "template": "ubuntu16", //Container template
       "peer_group": "HTTP-GROUP",
       "size": "TINY"
     }
@@ -13,34 +13,25 @@
     {
       "name": "HTTP-GROUP",
       "pricingPref": {
-        "maxPrice": "500"
+        "maxPrice": "500" //Subutai Goodwill
       }
     }
   ],
-  "sshKey": "titan",
+  "sshKey": "titan", //Subutai variables
   "configuration": {
     "arguments": [
       {
         "name" : "path",
         "value" : "/root"
-      },
-      {
-        "name" : "path1",
-        "value" : "/root"
-      }  
-      ,
-      {
-        "name" : "msg",
-        "value" : "My message"
-      }  
+      }
     ],
-    "playbook": "https://github.com/platium/app1/archive/master.zip",
-    "script": "main.yml",
+    "playbook": "https://github.com/zubaidullo/zubutai/archive/master.zip", //Repository archive file
+    "script": "main.yml", //script file name
     "groups": [
       {
-        "name": "meme",
+        "name": "backups", //name of container groups, where ansible script will be ran
         "nodes_name": [
-          "backup-server1"
+          "backup-server1" //container name, to include to the group
         ]
       }
     ]
