@@ -3,4 +3,4 @@
   sudo: yes
   tasks:
     - name: exec shell
-      shell: echo "{{msg}}" >> {{path}}/ansible.log
+      shell: echo "Hello Subutai world!" >> {{path}}/ansible.log
