@@ -1,23 +1,26 @@
 {
   "name": "SubutaiTestBlueprint",
   "description": "Environment configuration test Subutai blueprint",
-  "nodes": [
+  "containers": [
     {
-      "name": "backup-server1",
+      "hostname": "backup-server1",
       "template": "ubuntu16",
-      "peer_group": "HTTP-GROUP",
+      "peer_criteria": "HTTP-GROUP",
       "size": "TINY"
     }
   ],
-  "peerGroups": [
+  "peer_criteria": [
     {
       "name": "HTTP-GROUP",
-      "pricingPref": {
-        "maxPrice": "500"
+      "max-price": "50",
+      "resource-availability": {
+        "avg-cpu-load": "50",
+        "min-free-ram": "128MiB",
+        "min-free-disk-space": "500MiB"
       }
     }
   ],
-  "sshKey": "titan",
+  "ssh-key": "titan",
   "configuration": {
     "arguments": [
       {
@@ -25,12 +28,12 @@
         "value" : "/root"
       }
     ],
-    "playbook": "https://github.com/zubaidullo/zubutai/archive/master.zip",
-    "script": "main.yml",
+    "source-url": "https://github.com/zubaidullo/zubutai/archive/master.zip",
+    "ansible-playbook": "main.yml",
     "groups": [
       {
         "name": "backups",
-        "nodes_name": [
+        "hostnames": [
           "backup-server1"
         ]
       }
