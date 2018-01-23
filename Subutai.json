@@ -5,7 +5,7 @@
     {
       "hostname": "backup-server1",
       "template": "ubuntu16",
-      "peer_criteria": "HTTP-GROUP",
+      "peer-criteria": "HTTP-GROUP",
       "size": "TINY"
     }
   ],
