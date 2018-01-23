@@ -9,7 +9,7 @@
       "size": "TINY"
     }
   ],
-  "peer_criteria": [
+  "peer-criteria": [
     {
       "name": "HTTP-GROUP",
       "max-price": "50",
